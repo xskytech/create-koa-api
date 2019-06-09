@@ -2,31 +2,85 @@
 
 ## Flexible Koa API
 
-### Install Application
+### Installation
 
-* Clone repository - `git@github.com:xskytech/xsky-koa-api.git`
-* Change directory - `cd xsky-koa-api`
-* Install dependencies - `npm install`
+**npm version >= 5.2.0**
 
-### Configure Application
+```bash
+npx xsky-koa-api koa-api
+```
 
-* `cp .env.example .env`
+**npm version < 5.2.0**
 
-### Migrate Application
+```bash
+npm install --global xsky-koa-api
+xsky-koa-api koa-api
+```
 
-* Create, migrate and seed - `npm run db:migrate`
-* Drop - `npm run db:drop`
+### Configuration
 
-### Run Application
+**Change directory**
 
-* Run in development - `npm run dev`
-* Run in production - `npm start`
+```bash
+cd koa-api
+```
 
-### Lint Application
+**Copy .env.example to .env and change data**
 
-* Check lint issues - `npm run lint`
-* Fix lint issues - `npm run lint:fix`
+```bash
+cp .env.example .env
+```
 
-### Validate Application
+### Migration
 
-* Validate - `npm run validate`
+**Create, migrate and seed**
+
+```bash
+npm run db:migrate
+```
+
+**Drop**
+
+```bash
+npm run db:drop
+```
+
+### Linting
+
+**Check lint issues**
+
+```bash
+npm run lint
+```
+
+**Fix lint issues**
+
+```bash
+npm run lint:fix
+```
+
+### Validate
+
+**Validate application**
+
+```bash
+npm run validate
+```
+
+### Run
+
+**Run in development**
+
+```bash
+npm run dev
+```
+
+**Run in production**
+
+```bash
+npm start
+```
+
+### License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
