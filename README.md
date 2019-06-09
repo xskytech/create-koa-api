@@ -1,4 +1,4 @@
-# XSKY KOA API
+# KOA API
 
 ## Flexible Koa API
 
@@ -7,14 +7,14 @@
 **npm version >= 5.2.0**
 
 ```bash
-npx xsky-koa-api koa-api
+npx @xskytech/create-koa-api koa-api
 ```
 
 **npm version < 5.2.0**
 
 ```bash
-npm install --global xsky-koa-api
-xsky-koa-api koa-api
+npm install --global @xskytech/create-koa-api
+@xskytech/create-koa-api koa-api
 ```
 
 ### Configuration

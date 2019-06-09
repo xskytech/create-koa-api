@@ -1,5 +1,5 @@
 {
-  "name": "@xskytech/xsky-koa-api",
+  "name": "@xskytech/create-koa-api",
   "version": "1.0.0",
   "description": "Flexible Koa API",
   "main": "./src/index.js",
@@ -20,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:xskytech/xsky-koa-api.git"
+    "url": "git@github.com:xskytech/create-koa-api.git"
   },
   "bugs": {
-    "url": "https://github.com/xskytech/xsky-koa-api/issues"
+    "url": "https://github.com/xskytech/create-koa-api/issues"
   },
-  "homepage": "https://github.com/xskytech/xsky-koa-api#readme",
+  "homepage": "https://github.com/xskytech/create-koa-api#readme",
   "keywords": [
     "api",
     "boilerplate",
@@ -34,7 +34,7 @@
     "xsky",
     "xskytech"
   ],
-  "author":  {
+  "author": {
     "name": "Narek Keryan",
     "email": "narek.keryan@gmail.com",
     "url": "http://nkgdev.com"

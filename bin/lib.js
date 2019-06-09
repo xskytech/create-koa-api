@@ -35,8 +35,24 @@ const getHuskyFromJsonObject = (husky) => {
   return JSON.stringify(husky, null, 2).trim();
 };
 
+/**
+ * Generates content for giignore
+ * @param {Object} husky - husky object from package json
+ * @returns {String} - stringified husky
+ */
+const generateGitignore = () => {
+  return `  
+    # dependencies
+    node_modules/
+
+    # environment variables
+    .env
+  `.replace(/  +?/g, '');
+};
+
 module.exports = {
   getDependenciesFromJsonObject,
   getScriptsFromJsonObject,
-  getHuskyFromJsonObject
+  getHuskyFromJsonObject,
+  generateGitignore
 };

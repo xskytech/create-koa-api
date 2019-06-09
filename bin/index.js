@@ -9,12 +9,13 @@ const logger = require('log4js').getLogger('./bin/index.js');
 const {
   getDependenciesFromJsonObject,
   getScriptsFromJsonObject,
-  getHuskyFromJsonObject
+  getHuskyFromJsonObject,
+  generateGitignore
 } = require('./lib');
 
 const packageJson = require('../package.json');
 
-const projectFiles = ['.eslintrc.json', '.gitignore', 'README.md'];
+const projectFiles = ['.eslintrc.json', 'README.md'];
 const projectDirectory = process.argv[2] || 'koa-api';
 
 logger.level = 'debug';
@@ -33,6 +34,7 @@ exec(`mkdir ${projectDirectory} && cd ${projectDirectory} && git init && npm ini
   const devDependencies = getDependenciesFromJsonObject(packageJson.devDependencies);
   const scripts = getScriptsFromJsonObject(packageJson.scripts);
   const husky = getHuskyFromJsonObject(packageJson.husky);
+  const gitignore = generateGitignore();
   const projectPackageJsonPath = `${projectDirectory}/package.json`;
 
   exec(`cd ${projectDirectory} && npm i -S ${dependencies} && npm i -D ${devDependencies}`, async (err) => {
@@ -43,6 +45,7 @@ exec(`mkdir ${projectDirectory} && cd ${projectDirectory} && git init && npm ini
 
     try {
       const projectPackageJson = await fs.readFile(projectPackageJsonPath);
+      await fs.writeFile(`${projectDirectory}/.gitignore`, gitignore);
       await fs.writeFile(
         projectPackageJsonPath,
         JSON.stringify(
