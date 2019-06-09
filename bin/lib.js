@@ -1,58 +1,25 @@
-/* eslint-disable arrow-body-style */
-
 /**
- * Converts dependencies json object to string
- * @param {Object} dependenciesType - type of dependencies (dependency | devDependency)
- * @returns {String} - stringified dependencies
+ * Generates package.json for new project
+ * @param {Buffer} buffer - original package.json buffer
+ * @param {String} dir - project directory
+ * @returns {String} - stringified new package.json
  */
-const getDependenciesFromJsonObject = (dependenciesType) => {
-  return Object.entries(dependenciesType)
-    .map(dependencie => `${dependencie[0]}@${dependencie[1]}`)
-    .toString()
-    .replace(/,/g, ' ')
-    .replace(/\^/g, '')
-    .replace(/fs-extra[^\s]+/g, '');
-};
+const generatePackageJson = (buffer, dir) => {
+  const packageJson = {
+    ...JSON.parse(buffer.toString()),
+    name: dir,
+    version: '1.0.0',
+    description: '',
+    keywords: [],
+    author: ''
+  };
+  delete packageJson.repository;
+  delete packageJson.bugs;
+  delete packageJson.homepage;
 
-/**
- * Converts scripts json object to string
- * @param {Object} scripts - scripts object from package json
- * @returns {String} - stringified scripts
- */
-const getScriptsFromJsonObject = (scripts) => {
-  return JSON.stringify(scripts, null, 2)
-    .replace('{', '')
-    .replace('}', '')
-    .trim();
-};
-
-/**
- * Converts husky json object to string
- * @param {Object} husky - husky object from package json
- * @returns {String} - stringified husky
- */
-const getHuskyFromJsonObject = (husky) => {
-  return JSON.stringify(husky, null, 2).trim();
-};
-
-/**
- * Generates content for giignore
- * @param {Object} husky - husky object from package json
- * @returns {String} - stringified husky
- */
-const generateGitignore = () => {
-  return `  
-    # dependencies
-    node_modules/
-
-    # environment variables
-    .env
-  `.replace(/  +?/g, '');
+  return JSON.stringify(packageJson, null, 2);
 };
 
 module.exports = {
-  getDependenciesFromJsonObject,
-  getScriptsFromJsonObject,
-  getHuskyFromJsonObject,
-  generateGitignore
+  generatePackageJson
 };

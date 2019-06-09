@@ -1,6 +1,13 @@
-# KOA API
+# Koa API
 
 ## Flexible Koa API
+
+### Development
+
+```bash
+git clone git@github.com:xskytech/koa-api.git
+cd koa-api
+```
 
 ### Installation
 
@@ -29,20 +36,6 @@ cd koa-api
 
 ```bash
 cp .env.example .env
-```
-
-### Migration
-
-**Create, migrate and seed**
-
-```bash
-npm run db:migrate
-```
-
-**Drop**
-
-```bash
-npm run db:drop
 ```
 
 ### Linting
