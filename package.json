@@ -1,6 +1,6 @@
 {
   "name": "@xskytech/create-koa-api",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Flexible Koa API",
   "scripts": {
     "lint": "eslint .",
