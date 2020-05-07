@@ -11,7 +11,7 @@ const generatePackageJson = (buffer, dir) => {
     version: '1.0.0',
     description: '',
     keywords: [],
-    author: ''
+    author: '',
   };
   delete packageJson.repository;
   delete packageJson.bugs;
@@ -21,5 +21,5 @@ const generatePackageJson = (buffer, dir) => {
 };
 
 module.exports = {
-  generatePackageJson
+  generatePackageJson,
 };

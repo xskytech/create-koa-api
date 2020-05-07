@@ -5,9 +5,9 @@ const { exec } = require('child_process');
 const fs = require('fs-extra');
 const logger = require('log4js').getLogger('./bin/index.js');
 
-const { generatePackageJson } = require('./lib');
-
 const { version: packageVersion } = require('../package.json');
+
+const { generatePackageJson } = require('./lib');
 
 const projectDirectory = process.argv[2] || 'koa-api';
 
